@@ -1,9 +1,9 @@
 from  flask import Flask,render_template,request
 import pandas as pd
-file_path = "static\Action Explosive battles and dynami.txt"
+file_path = "Action Explosive battles and dynami.txt"
 usco=["ID","NAME"]
-ft=pd.read_csv("static\Anime.csv")
-sum_of_anime=pd.read_csv("static\Anime_with_synopsis.csv")
+ft=pd.read_csv("Anime.csv")
+sum_of_anime=pd.read_csv("Anime_with_synopsis.csv")
 deta_ID=list(sum_of_anime["MAL_ID"])
 deta_Name=list(sum_of_anime["Name"])
 deta_genr=list(sum_of_anime["Genres"])
@@ -87,3 +87,5 @@ def similar(i):
     recom=getresom(i)
     return render_template("similar.html",nm=[summary,recom])
         
+if __name__ =='__main__':
+    app.run(debug=True)
